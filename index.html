@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab05: JS Modules</title>
+
+    <link rel="stylesheet" href="styles_vga.css" />
+    <link rel="stylesheet" href="crt.css" />
+
+    <script type="module" src="app.js"></script>
+</head>
+
+
+<body>
+    <div class="bodyContent">
+        <header>
+            <p>Cpan Webdows [Version 113.2025.02.21]</p>
+            <p>Volume in C Drive has label boss_claw</p>
+            <p>77MHz CPU Clock</p>
+            <p>Loading LAB05.JS_MODULES</p>
+            <p>Ready...</p>
+            <p>Running BC-DOS</p>
+            <p>C:\> <span class='cursor'></span></p>
+        </header>
+
+        <main>
+            <div>
+                <div id="name_cta" class="border_double">
+                    <h1>░   ░  ░░ ░ ░░░░▒▓ JavaScript Modules Practice ▓▒░░░░ ░ ░░  ░   ░</h1>
+
+
+                    <div class="part">
+                        <p>Part 1 - create this index.html</p>
+                    </div>
+
+
+                    <div class="part">
+                        <p>Part 2 - the mathModule.js</p>
+
+                        <input id="task_2_input_1" type="number" value="17">
+                        <input id="task_2_input_2" type="number" value="3">
+
+                        <div class="h_container">
+                            <button id='task_2_btn' type="button">Execute</button>
+                        </div>
+
+                        <pre id="task_2_output">Part 2 output appears here</pre>
+                    </div>
+
+
+                    <div class="part">
+                        <p>Part 3 - the stringModule.js</p>
+
+                        <input id="task_3_input_1" type="text" value="Hello World">
+
+                        <div class="h_container">
+                            <button id='task_3_btn' type="button">Execute</button>
+                        </div>
+
+                        <pre id="task_3_output">Part 3 output appears here</pre>
+                    </div>
+
+
+                    <div class="part">
+                        <p>Part 4a - importing & using</p>
+
+                        <p>Please enter two numbers to add</p>
+
+                        <input id="task_4a_input_1" type="number" value="27">
+                        <input id="task_4a_input_2" type="number" value="43">
+
+                        <div class="h_container">
+                            <button id='task_4a_btn' type="button">Execute</button>
+                        </div>
+
+                        <pre id="task_4a_output">Part 4a output appears here</pre>
+                    </div>
+
+                    <div class="part">
+                        <p>Part 4b - importing & using</p>
+                        <p>Please enter a string to make uppercase</p>
+
+                        <input id="task_4b_input_1" type="text" value="lowercase string">
+
+                        <div class="h_container">
+                            <button id='task_4b_btn' type="button">Execute</button>
+                        </div>
+
+                        <pre id="task_4b_output">Part 4b output appears here</pre>
+                    </div>
+
+
+                    <div class="part">
+                        <p>part 5 - Adding a Default Export to mathModule.js</p>
+
+                        <p>Enter two numbers to multiply</p>
+                        <input id="task_5_input_1" type="number" value="10">
+                        <input id="task_5_input_2" type="number" value="99">
+
+                        <div class="h_container">
+                            <button id='task_5_btn' type="button">Execute</button>
+                        </div>
+
+                        <pre id="task_5_output">Part 5 output appears here</pre>
+                    </div>
+
+
+
+                    <div class="part">
+                        <p>Part 6 - Functions in arrayModule.js</p>
+
+                        <p>Please enter a string of numbers separated by a comma.</p>
+                        <p><i>(no time to type check today, sorry!)</i></p>
+                        <input id="task_6_input_1" type="text" value="20,10,23,1,4">
+
+                        <div class="h_container">
+                            <button id='task_6_btn' type="button">Execute</button>
+                        </div>
+
+                        <pre id="task_6_output">Part 6 output appears here</pre>
+                    </div>
+
+
+                    <div class="part">
+                        <p>Part 7: Combine Functions Across Modules</p>
+
+                        <p>Please enter two numbers to be added and uppercased.</p>
+                        <input id="task_7_input_1" type="number" value="2">
+                        <input id="task_7_input_2" type="number" value="222">
+
+                        <div class="h_container">
+                            <button id='task_7_btn' type="button">Execute</button>
+                        </div>
+
+                        <pre id="task_7_output">Part 7 output appears here</pre>
+                    </div>
+
+
+                    <div class="part">
+                        <p>Part 8: Combining modules and functions</p>
+
+                        <p>Please enter a string of numbers separated by a comma.</p>
+                        <p><i>(no time to type check today, sorry!)</i></p>
+                        <input id="task_8_input_1" type="text" value="20,10,17,3,13,43,50">
+
+                        <p>Please enter a number to multiply the max by.</p>
+                        <input id="task_8_input_2" type="number" value="200">
+
+                        <div class="h_container">
+                            <button id='task_8_btn' type="button">Execute</button>
+                        </div>
+
+                        <pre id="task_8_output">Part 8 output appears here</pre>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module">
+        // IMPORT DO_TASK NOW THAT app.js IS A MODULE
+        import { do_task } from './app.js';
+
+        // MANUALLY REG THE LOGIC TO THE BUTTON
+        document.getElementById("task_2_btn").addEventListener("click", () => { do_task(2, document.getElementById("task_2_input_1").value, document.getElementById("task_2_input_2").value, document.getElementById("task_2_output")) });
+        document.getElementById("task_3_btn").addEventListener("click", () => { do_task(3, document.getElementById("task_3_input_1").value, null, document.getElementById("task_3_output")) });
+        document.getElementById("task_4a_btn").addEventListener("click", () => { do_task('4a', document.getElementById("task_4a_input_1").value, document.getElementById("task_4a_input_2").value, document.getElementById("task_4a_output")) });
+        document.getElementById("task_4b_btn").addEventListener("click", () => { do_task('4b', document.getElementById("task_4b_input_1").value, null, document.getElementById("task_4b_output")) });
+        document.getElementById("task_5_btn").addEventListener("click", () => { do_task(5, document.getElementById("task_5_input_1").value, document.getElementById("task_5_input_2").value, document.getElementById("task_5_output")) });
+        document.getElementById("task_6_btn").addEventListener("click", () => { do_task(6, document.getElementById("task_6_input_1").value, null, document.getElementById("task_6_output")) });
+        document.getElementById("task_7_btn").addEventListener("click", () => { do_task(7, document.getElementById("task_7_input_1").value, document.getElementById("task_7_input_2").value, document.getElementById("task_7_output")) });
+        document.getElementById("task_8_btn").addEventListener("click", () => { do_task(8, document.getElementById("task_8_input_1").value, document.getElementById("task_8_input_2").value, document.getElementById("task_8_output")) });
+
+        // RUN ON PAGE LOAD
+        // document.addEventListener("DOMContentLoaded", function () {
+        // });
+
+    </script>
+</body>
+
+</html>
+
+<!-- 
+This lab focuses on hands-on coding, allowing you to create and work with JavaScript modules. You’ll get small code snippets for guidance, but the goal is for you to write the module functionality yourself.
+Lab Objectives:
+ [X] Create reusable modules.
+ [X] Load modules using ES6 syntax.
+ [X] Practice named and default exports.
+ [X] Manage dependencies between modules.
+
+
+Part 1: Project Setup
+ [X] Create a folder for your project: Name it lab5-modules-practical.
+ [X] Inside this folder, create the following files:
+ [X] index.html
+ [X] app.js
+ [X] mathModule.js
+ [X] stringModule.js
+ [X] Include your module script in the <head> of the HTML file:
+
+
+Part 2: Create the Math Module
+  You will build a simple math module that can handle basic arithmetic.
+  Step 1: mathModule.js
+  [X] Create a module with at least two functions (e.g., add, subtract).
+  Write the functions yourself. Here’s a hint for exporting:
+    // mathModule.js
+    export function add(a, b) { /* Your code here */ }
+    export function subtract(a, b) { /* Your code here */ }
+
+
+Part 3: Create the String Module
+  Next, create a module for string manipulation.
+  [X] Step 1: stringModule.js
+  [X] Create functions like toUpperCase and toLowerCase in this module.
+  Write these functions on your own:
+    // stringModule.js
+    export function toUpperCase(str) { /* Your code here */ }
+    export function toLowerCase(str) { /* Your code here */ }
+
+
+Part 4: Importing and Using the Modules
+  [X] Import the functions from mathModule.js and stringModule.js
+  [X] and then call the functions you wrote in the previous parts:
+
+  console.log('Add: ', add(5, 3));  // Test your add function
+  console.log('Uppercase: ', toUpperCase('hello'));  // Test string manipulation
+  
+  Test the code by opening index.html in your browser and checking the console.
+
+
+Part 5: Adding a Default Export
+ [X] Create a function for multiplication.
+ [X] Export it as the default export. You’ll need to write the actual function logic yourself:
+
+ [X] export default function multiply(a, b) { /* Your code here */ }
+ Now import the default function along with the named exports:
+ [X] console.log('Multiply: ', multiply(4, 5));  // Test the default export
+
+
+Part 6: Create and Use the Array Module
+ [X] Step 1: Create arrayModule.js
+
+ // arrayModule.js
+ [X] export function findMax(arr) { /* Your code here */ }
+ [X] export function reverseArray(arr) { /* Your code here */ }
+
+ console.log('Max: ', findMax([1, 2, 3, 4, 5]));  // Test findMax
+ console.log('Reversed: ', reverseArray([1, 2, 3]));  // Test reverseArray
+
+
+Part 7: Combine Functions Across Modules
+ [X] Create a function that adds two numbers, converts the result to uppercase (using stringModule.js), and logs it.
+ [X] Test your new function in app.js:
+ [X] import { addAndLogUpper } from './mathModule.js';
+ [X] addAndLogUpper(10, 20);  // Test the new function
+
+
+
+Part 8: Final Challenge
+ Task: Combine the array and math modules to create a scenario in which
+ [X] you find the maximum number in an array, 
+ [X] multiply it by a value, 
+ [X] and then convert the result to uppercase using the string module.
+
+
+Lab Submission
+ [X] Ensure that all modules are working and functions are used correctly.
+ [X] Upload your project files, create a GitHub repository, host your code on GitHub pages and submit the link to the repo and the live page. -->
